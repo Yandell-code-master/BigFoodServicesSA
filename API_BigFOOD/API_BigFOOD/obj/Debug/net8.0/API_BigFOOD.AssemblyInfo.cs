@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("API_BigFOOD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ae4098780f66452672ec62c8e07f2293cac5ffa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67a8cf361aedde29be820086c9a52a76a945f10d")]
 [assembly: System.Reflection.AssemblyProductAttribute("API_BigFOOD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("API_BigFOOD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
