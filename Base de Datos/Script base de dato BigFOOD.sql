@@ -4,7 +4,7 @@ GO
 USE BigFOOD;
 GO
 
---TABLA USUARIOS
+-- TABLA USUARIOS
 CREATE TABLE Usuarios
 (
     Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -15,7 +15,7 @@ CREATE TABLE Usuarios
 );
 GO
 
---TABLA CLIENTES
+-- TABLA CLIENTES
 CREATE TABLE Clientes
 (
     CedulaLegal VARCHAR(20) PRIMARY KEY,
@@ -24,15 +24,21 @@ CREATE TABLE Clientes
     Email VARCHAR(100) NOT NULL,
     FechaRegistro DATETIME NOT NULL DEFAULT GETDATE(),
     Estado BIT NOT NULL DEFAULT 1,
-    Usuario INT NOT NULL,
+    UsuarioId INT NOT NULL,
+
+    CONSTRAINT UQ_Clientes_Email
+        UNIQUE (Email),
+
+    CONSTRAINT CK_Clientes_TipoCedula
+        CHECK (TipoCedula IN ('FISICA','JURIDICA','DIMEX')),
 
     CONSTRAINT FK_Cliente_Usuario
-        FOREIGN KEY (Usuario)
+        FOREIGN KEY (UsuarioId)
         REFERENCES Usuarios(Id)
 );
 GO
 
---TABLA PRODUCTOS
+-- TABLA PRODUCTOS
 CREATE TABLE Productos
 (
     CodigoInterno INT IDENTITY(1,1) PRIMARY KEY,
@@ -43,41 +49,53 @@ CREATE TABLE Productos
     Impuesto DECIMAL(18,2) NOT NULL DEFAULT 13,
     UnidadMedida VARCHAR(50) NOT NULL,
     PrecioCompra DECIMAL(18,2) NOT NULL,
-    Usuario INT NOT NULL,
+    UsuarioId INT NOT NULL,
     Existencia INT NOT NULL DEFAULT 0,
 
+    CONSTRAINT UQ_Productos_Descripcion
+        UNIQUE (Descripcion),
+
     CONSTRAINT FK_Producto_Usuario
-        FOREIGN KEY (Usuario)
+        FOREIGN KEY (UsuarioId)
         REFERENCES Usuarios(Id)
 );
 GO
 
---TABLA FACTURAS
+-- TABLA FACTURAS
 CREATE TABLE Facturas
 (
-    Numero INT PRIMARY KEY,
+    Numero INT IDENTITY(1,1) PRIMARY KEY,
     Fecha DATETIME NOT NULL DEFAULT GETDATE(),
-    CodCliente VARCHAR(20) NOT NULL,
+    CedulaCliente VARCHAR(20) NOT NULL,
     Subtotal DECIMAL(18,2) NOT NULL,
     MontoDescuento DECIMAL(18,2) NOT NULL,
     MontoImpuesto DECIMAL(18,2) NOT NULL,
     Total DECIMAL(18,2) NOT NULL,
-    Estado VARCHAR(20) NOT NULL DEFAULT 'Activa',
-    Usuario INT NOT NULL,
+    Estado VARCHAR(20) NOT NULL DEFAULT 'ACTIVA',
+    UsuarioId INT NOT NULL,
     TipoPago VARCHAR(20) NOT NULL,
     Condicion VARCHAR(20) NOT NULL,
 
+    CONSTRAINT CK_Facturas_TipoPago
+        CHECK (TipoPago IN ('EFECTIVO','TARJETA','SINPE MOVIL')),
+
+    CONSTRAINT CK_Facturas_Condicion
+        CHECK (Condicion IN ('CONTADO','CREDITO')),
+
+    CONSTRAINT CK_Facturas_Estado
+        CHECK (Estado IN ('PAGADA','PENDIENTE','ANULADA')),
+
     CONSTRAINT FK_Factura_Cliente
-        FOREIGN KEY (CodCliente)
+        FOREIGN KEY (CedulaCliente)
         REFERENCES Clientes(CedulaLegal),
 
     CONSTRAINT FK_Factura_Usuario
-        FOREIGN KEY (Usuario)
+        FOREIGN KEY (UsuarioId)
         REFERENCES Usuarios(Id)
 );
 GO
 
---TABLA DET_FACTURAS
+-- TABLA DETALLE FACTURAS
 CREATE TABLE Det_Facturas
 (
     NumFactura INT NOT NULL,
@@ -100,19 +118,22 @@ CREATE TABLE Det_Facturas
 );
 GO
 
---TABLA CUENTAS POR COBRAR
+-- TABLA CUENTAS POR COBRAR
 CREATE TABLE CuentasPorCobrar
 (
     NumFactura INT PRIMARY KEY,
-    CodCliente VARCHAR(20) NOT NULL,
+    CedulaCliente VARCHAR(20) NOT NULL,
     FechaFactura DATETIME NOT NULL,
     FechaRegistro DATETIME NOT NULL DEFAULT GETDATE(),
     MontoFactura DECIMAL(18,2) NOT NULL,
-    Usuario INT NOT NULL,
-    Estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente',
+    UsuarioId INT NOT NULL,
+    Estado VARCHAR(20) NOT NULL DEFAULT 'PENDIENTE',
+
+    CONSTRAINT CK_CuentasPorCobrar_Estado
+        CHECK (Estado IN ('PENDIENTE','PAGADO')),
 
     CONSTRAINT FK_CuentasPorCobrar_Cliente
-        FOREIGN KEY (CodCliente)
+        FOREIGN KEY (CedulaCliente)
         REFERENCES Clientes(CedulaLegal),
 
     CONSTRAINT FK_CuentasPorCobrar_Factura
@@ -120,26 +141,39 @@ CREATE TABLE CuentasPorCobrar
         REFERENCES Facturas(Numero),
 
     CONSTRAINT FK_CuentasPorCobrar_Usuario
-        FOREIGN KEY (Usuario)
+        FOREIGN KEY (UsuarioId)
         REFERENCES Usuarios(Id)
 );
 GO
 
---TABLA BITACORA
+-- TABLA BITACORA
 CREATE TABLE Bitacora
 (
     IdBitacora INT IDENTITY(1,1) PRIMARY KEY,
     Tabla VARCHAR(50) NOT NULL,
-    Usuario INT NOT NULL,
+    UsuarioId INT NOT NULL,
     Maquina VARCHAR(100) NOT NULL,
     Fecha DATETIME NOT NULL DEFAULT GETDATE(),
     TipoMov VARCHAR(20) NOT NULL,
     Registro VARCHAR(100) NOT NULL,
 
     CONSTRAINT FK_Bitacora_Usuario
-        FOREIGN KEY (Usuario)
+        FOREIGN KEY (UsuarioId)
         REFERENCES Usuarios(Id)
 );
 GO
 
-sp_help Facturas
+-- USUARIO DE PRUEBA
+INSERT INTO Usuarios
+(
+    Login,
+    Password
+)
+VALUES
+(
+    'admin',
+    '123'
+);
+GO
+
+
