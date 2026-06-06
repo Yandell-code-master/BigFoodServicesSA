@@ -141,3 +141,5 @@ CREATE TABLE Bitacora
         REFERENCES Usuarios(Id)
 );
 GO
+
+sp_help Facturas
