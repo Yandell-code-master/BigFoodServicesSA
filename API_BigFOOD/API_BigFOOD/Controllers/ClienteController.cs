@@ -204,6 +204,26 @@ namespace API_BigFOOD.Controllers
                         return $"Ya existe otro cliente con el correo {temp.Email}";
                     }
 
+                    //Se validan los datos ingresados
+                    if (string.IsNullOrWhiteSpace(temp.NombreCompleto))
+                    {
+                        return "Debe indicar el nombre completo del cliente";
+                    }
+
+                    if (string.IsNullOrWhiteSpace(temp.TipoCedula))
+                    {
+                        return "Debe indicar el tipo de cédula";
+                    }
+
+                    if (temp.TipoCedula.ToUpper() != "FISICA" &&
+                        temp.TipoCedula.ToUpper() != "JURIDICA" &&
+                        temp.TipoCedula.ToUpper() != "DIMEX")
+                    {
+                        return "El tipo de cédula debe ser FISICA, JURIDICA o DIMEX";
+                    }
+
+                    aux.NombreCompleto = temp.NombreCompleto;
+                    aux.TipoCedula = temp.TipoCedula.ToUpper();
                     aux.Email = temp.Email;
                     aux.Estado = temp.Estado;
 
