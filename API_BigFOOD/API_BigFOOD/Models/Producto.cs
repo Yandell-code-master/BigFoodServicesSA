@@ -1,15 +1,30 @@
-﻿namespace API_BigFOOD.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace API_BigFOOD.Models
 {
     public class Producto
     {
-        public string CodigoInterno { get; set; }
-        public string CodigoBarra { get; set; }
-        public string Descripcion { get; set; }
-        public int PrecioCompraProveedor { get; set; }
-        public int PrecioVenta { get; set; }
-        public int DescuentoAplicado { get; set; }
-        public int Impuesto { get; set; }
-        public string UnidadMedida { get; set; }
+       
+        [Key]
+        // El valor es generado automáticamente por SQL Server mediante IDENTITY(1,1).
+        public int CodigoInterno { get; set; } // En los métodos Save se envia en 0 porque la base de datos asigna el valor.
 
+        public string CodigoBarra { get; set; } = string.Empty;
+
+        public string Descripcion { get; set; } = string.Empty;
+
+        public decimal PrecioVenta { get; set; }
+
+        public decimal Descuento { get; set; }
+
+        public decimal Impuesto { get; set; }
+
+        public string UnidadMedida { get; set; } = string.Empty;
+
+        public decimal PrecioCompra { get; set; }
+
+        public int UsuarioId { get; set; }
+
+        public int Existencia { get; set; }
     }
 }

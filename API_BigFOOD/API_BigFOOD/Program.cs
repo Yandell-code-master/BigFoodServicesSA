@@ -1,3 +1,9 @@
+using API_BigFOOD.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,7 +11,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
+
+//Se configura el servicio del ORM
+builder.Services.AddDbContext<API_BigFOOD.Models.DbContextBigFOOD>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("StringLocal")));
+
+//Configuración del servicio Gometa
+builder.Services.AddTransient<GometaServices>();
+
+//Configuración del servicio PDF
+builder.Services.AddTransient<IPdfServices, PdfServices>();
+
+//Configuración del servicio Email
+builder.Services.AddTransient<IEmailServices, EmailServices>();
+
+//Configuración del servicio de bitácora
+builder.Services.AddTransient<IBitacoraServices, BitacoraServices>();
 
 var app = builder.Build();
 
@@ -18,6 +41,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//Configuración de autenticación
+app.UseAuthentication();
+
+//Configuración de autorización
 app.UseAuthorization();
 
 app.MapControllers();

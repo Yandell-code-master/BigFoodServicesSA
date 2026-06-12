@@ -1,12 +1,22 @@
-﻿using System.Security.Principal;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace API_BigFOOD.Models
 {
     public class Cliente
     {
-        public string Cedula { get; set; }
-        public string TipoCedula { get; set; }
-        public string Nombre { get; set; }
-        public string Email { get; set; }
+        [Key]
+        public string CedulaLegal { get; set; } = string.Empty;
+
+        public string TipoCedula { get; set; } = string.Empty;
+
+        public string NombreCompleto { get; set; } = string.Empty;
+
+        public string Email { get; set; } = string.Empty;
+
+        public DateTime FechaRegistro { get; set; }
+
+        public bool Estado { get; set; }
+
+        public int UsuarioId { get; set; }
     }
 }
