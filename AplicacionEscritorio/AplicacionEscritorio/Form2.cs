@@ -9,6 +9,7 @@ namespace AplicacionEscritorio
         private ucDashboard _dashboard;
         private ucClientes _clientes;
         private ucFacturas _facturas;
+        private ucMenu _menu;
 
         public Form2()
         {
@@ -52,8 +53,12 @@ namespace AplicacionEscritorio
             LoadScreen(_clientes);
         }
 
-        private void btnProductos_Click(object sender, EventArgs e) =>
-            ShowPlaceholder("Productos / Men\u00fa", "\U0001F4E6");
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            if (_menu == null)
+                _menu = new ucMenu();
+            LoadScreen(_menu);
+        }
 
         private void btnNuevaFactura_Click(object sender, EventArgs e) =>
             ShowPlaceholder("Nueva Factura", "\U0001F9FE");
