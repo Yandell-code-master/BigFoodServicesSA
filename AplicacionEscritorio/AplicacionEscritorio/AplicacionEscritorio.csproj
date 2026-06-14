@@ -85,6 +85,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\DetalleFacturaDTO.cs" />
+    <Compile Include="DTOs\FacturaDTO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +99,8 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Factura.cs" />
+    <Compile Include="Models\Producto.cs" />
     <Compile Include="ucDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +117,18 @@
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucFacturas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucFacturas.Designer.cs">
+      <DependentUpon>ucFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucMenu.Designer.cs">
+      <DependentUpon>ucMenu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +141,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucFacturas.resx">
+      <DependentUpon>ucFacturas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
