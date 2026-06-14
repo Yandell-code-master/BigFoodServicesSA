@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="DTOs\DetalleFacturaDTO.cs" />
     <Compile Include="DTOs\FacturaDTO.cs" />
+    <Compile Include="DTOs\UsuarioDTO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +102,19 @@
     </Compile>
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Producto.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="ucCrearFactura.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCrearFactura.Designer.cs">
+      <DependentUpon>ucCrearFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucCuentasPorCobrar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucCuentasPorCobrar.Designer.cs">
+      <DependentUpon>ucCuentasPorCobrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +143,12 @@
     <Compile Include="ucMenu.Designer.cs">
       <DependentUpon>ucMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucUsuarios.Designer.cs">
+      <DependentUpon>ucUsuarios.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,8 +161,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucCrearFactura.resx">
+      <DependentUpon>ucCrearFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucCuentasPorCobrar.resx">
+      <DependentUpon>ucCuentasPorCobrar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucFacturas.resx">
       <DependentUpon>ucFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucUsuarios.resx">
+      <DependentUpon>ucUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

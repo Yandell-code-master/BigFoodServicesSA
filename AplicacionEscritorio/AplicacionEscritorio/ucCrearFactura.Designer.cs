@@ -1,34 +1,20 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace AplicacionEscritorio
+﻿namespace AplicacionEscritorio
 {
-    partial class ucFacturas
+    partial class ucCrearFactura
     {
         private System.ComponentModel.IContainer components = null;
 
-
-    protected override void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
+            {
                 components.Dispose();
-
+            }
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnAnularFactura = new System.Windows.Forms.Button();
-            this.btnPagarCuenta = new System.Windows.Forms.Button();
-            this.dgvFacturas = new System.Windows.Forms.DataGridView();
-            this.panelDetalle = new System.Windows.Forms.Panel();
             this.lblCedulaCliente = new System.Windows.Forms.Label();
             this.txtCedulaCliente = new System.Windows.Forms.TextBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
@@ -48,158 +34,10 @@ namespace AplicacionEscritorio
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.lblTotalTitulo = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnCrearFactura = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
-            this.panelDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelTop
-            // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.panelTop.Controls.Add(this.lblTitle);
-            this.panelTop.Controls.Add(this.txtBuscar);
-            this.panelTop.Controls.Add(this.btnBuscar);
-            this.panelTop.Controls.Add(this.btnAnularFactura);
-            this.panelTop.Controls.Add(this.btnPagarCuenta);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1216, 50);
-            this.panelTop.TabIndex = 2;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
-            this.lblTitle.Location = new System.Drawing.Point(16, 10);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(180, 30);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "🧾  Facturas";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
-            this.txtBuscar.Location = new System.Drawing.Point(200, 12);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(180, 27);
-            this.txtBuscar.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
-            this.btnBuscar.Location = new System.Drawing.Point(386, 11);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(36, 28);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "🔍";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // btnAnularFactura
-            // 
-            this.btnAnularFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.btnAnularFactura.FlatAppearance.BorderSize = 0;
-            this.btnAnularFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnularFactura.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnAnularFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
-            this.btnAnularFactura.Location = new System.Drawing.Point(550, 10);
-            this.btnAnularFactura.Name = "btnAnularFactura";
-            this.btnAnularFactura.Size = new System.Drawing.Size(95, 30);
-            this.btnAnularFactura.TabIndex = 4;
-            this.btnAnularFactura.Text = "❌ Anular";
-            this.btnAnularFactura.UseVisualStyleBackColor = false;
-            this.btnAnularFactura.Click += new System.EventHandler(this.btnAnularFactura_Click);
-            // 
-            // btnPagarCuenta
-            // 
-            this.btnPagarCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.btnPagarCuenta.FlatAppearance.BorderSize = 0;
-            this.btnPagarCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagarCuenta.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnPagarCuenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
-            this.btnPagarCuenta.Location = new System.Drawing.Point(655, 10);
-            this.btnPagarCuenta.Name = "btnPagarCuenta";
-            this.btnPagarCuenta.Size = new System.Drawing.Size(95, 30);
-            this.btnPagarCuenta.TabIndex = 5;
-            this.btnPagarCuenta.Text = "💰 Pagar";
-            this.btnPagarCuenta.UseVisualStyleBackColor = false;
-            this.btnPagarCuenta.Click += new System.EventHandler(this.btnPagarCuenta_Click);
-            // 
-            // dgvFacturas
-            // 
-            this.dgvFacturas.AllowUserToAddRows = false;
-            this.dgvFacturas.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.dgvFacturas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvFacturas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.dgvFacturas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvFacturas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(197)))), ((int)(((byte)(171)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvFacturas.ColumnHeadersHeight = 36;
-            this.dgvFacturas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvFacturas.EnableHeadersVisualStyles = false;
-            this.dgvFacturas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.dgvFacturas.Location = new System.Drawing.Point(0, 50);
-            this.dgvFacturas.MultiSelect = false;
-            this.dgvFacturas.Name = "dgvFacturas";
-            this.dgvFacturas.ReadOnly = true;
-            this.dgvFacturas.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(225)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.dgvFacturas.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvFacturas.RowTemplate.Height = 32;
-            this.dgvFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFacturas.Size = new System.Drawing.Size(1216, 297);
-            this.dgvFacturas.TabIndex = 0;
-            // 
-            // panelDetalle
-            // 
-            this.panelDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.panelDetalle.Controls.Add(this.lblCedulaCliente);
-            this.panelDetalle.Controls.Add(this.txtCedulaCliente);
-            this.panelDetalle.Controls.Add(this.btnBuscarCliente);
-            this.panelDetalle.Controls.Add(this.lblNombreCliente);
-            this.panelDetalle.Controls.Add(this.txtNombreCliente);
-            this.panelDetalle.Controls.Add(this.lblTipoPago);
-            this.panelDetalle.Controls.Add(this.cmbTipoPago);
-            this.panelDetalle.Controls.Add(this.lblCondicion);
-            this.panelDetalle.Controls.Add(this.cmbCondicion);
-            this.panelDetalle.Controls.Add(this.lblCodigoProducto);
-            this.panelDetalle.Controls.Add(this.txtCodigoProducto);
-            this.panelDetalle.Controls.Add(this.lblCantidad);
-            this.panelDetalle.Controls.Add(this.txtCantidad);
-            this.panelDetalle.Controls.Add(this.btnAgregarProducto);
-            this.panelDetalle.Controls.Add(this.dgvDetalle);
-            this.panelDetalle.Controls.Add(this.lblSubtotalTitulo);
-            this.panelDetalle.Controls.Add(this.lblSubtotal);
-            this.panelDetalle.Controls.Add(this.lblTotalTitulo);
-            this.panelDetalle.Controls.Add(this.lblTotal);
-            this.panelDetalle.Controls.Add(this.btnCancelar);
-            this.panelDetalle.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDetalle.Location = new System.Drawing.Point(0, 347);
-            this.panelDetalle.Name = "panelDetalle";
-            this.panelDetalle.Padding = new System.Windows.Forms.Padding(20);
-            this.panelDetalle.Size = new System.Drawing.Size(1216, 340);
-            this.panelDetalle.TabIndex = 1;
-            this.panelDetalle.Visible = false;
             // 
             // lblCedulaCliente
             // 
@@ -234,7 +72,7 @@ namespace AplicacionEscritorio
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(90, 28);
             this.btnBuscarCliente.TabIndex = 2;
-            this.btnBuscarCliente.Text = "🔍  Gometa";
+            this.btnBuscarCliente.Text = "🔍  Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = false;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
@@ -368,55 +206,67 @@ namespace AplicacionEscritorio
             this.dgvDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.dgvDetalle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDetalle.ColumnHeadersHeight = 36;
-            this.dgvDetalle.EnableHeadersVisualStyles = false;
-            this.dgvDetalle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.dgvDetalle.Location = new System.Drawing.Point(20, 145);
-            this.dgvDetalle.MultiSelect = false;
             this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.ReadOnly = true;
             this.dgvDetalle.RowHeadersVisible = false;
-            this.dgvDetalle.RowTemplate.Height = 32;
-            this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(700, 110);
+            this.dgvDetalle.Size = new System.Drawing.Size(775, 128);
             this.dgvDetalle.TabIndex = 14;
             // 
             // lblSubtotalTitulo
             // 
+            this.lblSubtotalTitulo.AutoSize = true;
             this.lblSubtotalTitulo.ForeColor = System.Drawing.Color.Transparent;
-            this.lblSubtotalTitulo.Location = new System.Drawing.Point(20, 270);
+            this.lblSubtotalTitulo.Location = new System.Drawing.Point(20, 309);
             this.lblSubtotalTitulo.Name = "lblSubtotalTitulo";
-            this.lblSubtotalTitulo.Size = new System.Drawing.Size(100, 23);
+            this.lblSubtotalTitulo.Size = new System.Drawing.Size(49, 13);
             this.lblSubtotalTitulo.TabIndex = 15;
             this.lblSubtotalTitulo.Text = "Subtotal:";
             // 
             // lblSubtotal
             // 
+            this.lblSubtotal.AutoSize = true;
             this.lblSubtotal.ForeColor = System.Drawing.Color.Transparent;
-            this.lblSubtotal.Location = new System.Drawing.Point(120, 270);
+            this.lblSubtotal.Location = new System.Drawing.Point(75, 303);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(100, 23);
+            this.lblSubtotal.Size = new System.Drawing.Size(28, 13);
             this.lblSubtotal.TabIndex = 16;
             this.lblSubtotal.Text = "0.00";
             // 
             // lblTotalTitulo
             // 
+            this.lblTotalTitulo.AutoSize = true;
             this.lblTotalTitulo.ForeColor = System.Drawing.Color.Transparent;
-            this.lblTotalTitulo.Location = new System.Drawing.Point(220, 270);
+            this.lblTotalTitulo.Location = new System.Drawing.Point(169, 309);
             this.lblTotalTitulo.Name = "lblTotalTitulo";
-            this.lblTotalTitulo.Size = new System.Drawing.Size(100, 23);
+            this.lblTotalTitulo.Size = new System.Drawing.Size(34, 13);
             this.lblTotalTitulo.TabIndex = 17;
             this.lblTotalTitulo.Text = "Total:";
             // 
             // lblTotal
             // 
+            this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.Color.Transparent;
-            this.lblTotal.Location = new System.Drawing.Point(320, 270);
+            this.lblTotal.Location = new System.Drawing.Point(209, 303);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(100, 23);
+            this.lblTotal.Size = new System.Drawing.Size(37, 19);
             this.lblTotal.TabIndex = 18;
             this.lblTotal.Text = "0.00";
+            // 
+            // btnCrearFactura
+            // 
+            this.btnCrearFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnCrearFactura.FlatAppearance.BorderSize = 0;
+            this.btnCrearFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearFactura.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnCrearFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(80)))), ((int)(((byte)(0)))));
+            this.btnCrearFactura.Location = new System.Drawing.Point(405, 289);
+            this.btnCrearFactura.Name = "btnCrearFactura";
+            this.btnCrearFactura.Size = new System.Drawing.Size(184, 72);
+            this.btnCrearFactura.TabIndex = 19;
+            this.btnCrearFactura.Text = "💾 Crear Factura";
+            this.btnCrearFactura.UseVisualStyleBackColor = false;
+            this.btnCrearFactura.Click += new System.EventHandler(this.btnCrearFactura_Click);
             // 
             // btnCancelar
             // 
@@ -426,73 +276,67 @@ namespace AplicacionEscritorio
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(197)))), ((int)(((byte)(171)))));
-            this.btnCancelar.Location = new System.Drawing.Point(610, 265);
+            this.btnCancelar.Location = new System.Drawing.Point(611, 289);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(110, 40);
+            this.btnCancelar.Size = new System.Drawing.Size(184, 72);
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // ucFacturas
+            // ucCrearFactura
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.Controls.Add(this.dgvFacturas);
-            this.Controls.Add(this.panelDetalle);
-            this.Controls.Add(this.panelTop);
-            this.Name = "ucFacturas";
-            this.Size = new System.Drawing.Size(1216, 687);
-            this.Load += new System.EventHandler(this.ucFacturas_Load);
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
-            this.panelDetalle.ResumeLayout(false);
-            this.panelDetalle.PerformLayout();
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.Controls.Add(this.lblCedulaCliente);
+            this.Controls.Add(this.txtCedulaCliente);
+            this.Controls.Add(this.btnBuscarCliente);
+            this.Controls.Add(this.lblNombreCliente);
+            this.Controls.Add(this.txtNombreCliente);
+            this.Controls.Add(this.lblTipoPago);
+            this.Controls.Add(this.cmbTipoPago);
+            this.Controls.Add(this.lblCondicion);
+            this.Controls.Add(this.cmbCondicion);
+            this.Controls.Add(this.lblCodigoProducto);
+            this.Controls.Add(this.txtCodigoProducto);
+            this.Controls.Add(this.lblCantidad);
+            this.Controls.Add(this.txtCantidad);
+            this.Controls.Add(this.btnAgregarProducto);
+            this.Controls.Add(this.dgvDetalle);
+            this.Controls.Add(this.lblSubtotalTitulo);
+            this.Controls.Add(this.lblSubtotal);
+            this.Controls.Add(this.lblTotalTitulo);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.btnCrearFactura);
+            this.Controls.Add(this.btnCancelar);
+            this.Name = "ucCrearFactura";
+            this.Size = new System.Drawing.Size(1073, 639);
+            this.Load += new System.EventHandler(this.ucCrearFactura_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
-        private Panel panelTop;
-        private Label lblTitle;
-        private TextBox txtBuscar;
-        private Button btnBuscar;
-        private Button btnAnularFactura;
-        private Button btnPagarCuenta;
-
-        private DataGridView dgvFacturas;
-
-        private Panel panelDetalle;
-
-        private Label lblCedulaCliente;
-        private TextBox txtCedulaCliente;
-        private Button btnBuscarCliente;
-
-        private Label lblNombreCliente;
-        private TextBox txtNombreCliente;
-
-        private Label lblTipoPago;
-        private ComboBox cmbTipoPago;
-
-        private Label lblCondicion;
-        private ComboBox cmbCondicion;
-
-        private Label lblCodigoProducto;
-        private TextBox txtCodigoProducto;
-
-        private Label lblCantidad;
-        private TextBox txtCantidad;
-
-        private Button btnAgregarProducto;
-
-        private DataGridView dgvDetalle;
-
-        private Label lblSubtotalTitulo;
-        private Label lblSubtotal;
-
-        private Label lblTotalTitulo;
-        private Label lblTotal;
-        private Button btnCancelar;
+        private System.Windows.Forms.Label lblCedulaCliente;
+        private System.Windows.Forms.TextBox txtCedulaCliente;
+        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Label lblNombreCliente;
+        private System.Windows.Forms.TextBox txtNombreCliente;
+        private System.Windows.Forms.Label lblTipoPago;
+        private System.Windows.Forms.ComboBox cmbTipoPago;
+        private System.Windows.Forms.Label lblCondicion;
+        private System.Windows.Forms.ComboBox cmbCondicion;
+        private System.Windows.Forms.Label lblCodigoProducto;
+        private System.Windows.Forms.TextBox txtCodigoProducto;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.DataGridView dgvDetalle;
+        private System.Windows.Forms.Label lblSubtotalTitulo;
+        private System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.Label lblTotalTitulo;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnCrearFactura;
+        private System.Windows.Forms.Button btnCancelar;
     }
-
 }

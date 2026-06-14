@@ -16,6 +16,7 @@ namespace AplicacionEscritorio
     public ucFacturas()
         {
             InitializeComponent();
+            
 
             txtBuscar.TextChanged += TxtBuscar_TextChanged;
         }
@@ -98,6 +99,15 @@ namespace AplicacionEscritorio
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
         }
+        //cargar facturas cada que alguien entre a la vista
+        protected override async void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            if (this.Visible)
+            {
+                await LoadFacturas();
+            }
+        }
 
         private void ConfigurarColumnasDetalle()
         {
@@ -141,11 +151,7 @@ namespace AplicacionEscritorio
             FiltrarFacturas();
         }
 
-        private void btnNuevaFactura_Click(object sender, EventArgs e)
-        {
-            LimpiarFormulario();
-            panelDetalle.Visible = true;
-        }
+     
 
         private async void btnBuscarCliente_Click(object sender, EventArgs e)
         {

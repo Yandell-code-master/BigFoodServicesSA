@@ -92,7 +92,7 @@ namespace AplicacionEscritorio
             this.panelBottom.ResumeLayout(false);
             this.ResumeLayout(false);
         }
-
+        
         private Panel CreateCard(string icon, string label, string value, out Label valueLabel)
         {
             Panel p = new Panel

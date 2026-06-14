@@ -10,7 +10,9 @@ namespace AplicacionEscritorio
         private ucClientes _clientes;
         private ucFacturas _facturas;
         private ucMenu _menu;
-
+        private ucCrearFactura _crearFactura;
+        private ucCuentasPorCobrar _cuentasCobrar;
+        private ucUsuarios _usuarios;
         public Form2()
         {
             InitializeComponent();
@@ -60,8 +62,12 @@ namespace AplicacionEscritorio
             LoadScreen(_menu);
         }
 
-        private void btnNuevaFactura_Click(object sender, EventArgs e) =>
-            ShowPlaceholder("Nueva Factura", "\U0001F9FE");
+        private void btnNuevaFactura_Click(object sender, EventArgs e)
+        {
+            if (_crearFactura == null)
+                _crearFactura = new ucCrearFactura();
+            LoadScreen(_crearFactura);
+        }
 
         private void btnFacturas_Click(object sender, EventArgs e)
         {
@@ -70,12 +76,18 @@ namespace AplicacionEscritorio
             LoadScreen(_facturas);
         }
 
-        private void btnCxC_Click(object sender, EventArgs e) =>
-            ShowPlaceholder("Cuentas por Cobrar", "\U0001F4B0");
-
-        private void btnUsuarios_Click(object sender, EventArgs e) =>
-            ShowPlaceholder("Usuarios", "\U0001F510");
-
+        private void btnCxC_Click(object sender, EventArgs e)
+        {
+            if (_cuentasCobrar == null)
+                _cuentasCobrar = new ucCuentasPorCobrar();
+            LoadScreen(_cuentasCobrar);
+        }
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            if (_usuarios == null)
+                _usuarios = new ucUsuarios();
+            LoadScreen(_usuarios);
+        }
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Form1 login = new Form1();
