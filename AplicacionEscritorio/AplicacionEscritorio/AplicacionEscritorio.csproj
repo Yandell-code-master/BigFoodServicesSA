@@ -161,6 +161,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ucClientes.resx">
+      <DependentUpon>ucClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucCrearFactura.resx">
       <DependentUpon>ucCrearFactura.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucFacturas.resx">
       <DependentUpon>ucFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucMenu.resx">
+      <DependentUpon>ucMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucUsuarios.resx">
       <DependentUpon>ucUsuarios.cs</DependentUpon>
