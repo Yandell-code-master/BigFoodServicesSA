@@ -23,6 +23,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button(); 
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.panelDetalle = new System.Windows.Forms.Panel();
             this.lblSubtitulo = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.panelTop.Controls.Add(this.txtBuscar);
             this.panelTop.Controls.Add(this.btnBuscar);
             this.panelTop.Controls.Add(this.btnNuevoUsuario);
+            this.panelTop.Controls.Add(this.btnEliminarUsuario); 
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
@@ -81,11 +83,24 @@
             this.btnNuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.btnNuevoUsuario.Location = new System.Drawing.Point(500, 10);
+            this.btnNuevoUsuario.Location = new System.Drawing.Point(490, 10);
             this.btnNuevoUsuario.Size = new System.Drawing.Size(140, 30);
             this.btnNuevoUsuario.Text = "➕ Nuevo Usuario";
             this.btnNuevoUsuario.UseVisualStyleBackColor = false;
             this.btnNuevoUsuario.Click += new System.EventHandler(this.btnNuevoUsuario_Click);
+            // 
+            // btnEliminarUsuario
+            // 
+            this.btnEliminarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69))))); // Color rojo discreto para alertas/borrado
+            this.btnEliminarUsuario.FlatAppearance.BorderSize = 0;
+            this.btnEliminarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEliminarUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(640, 10);
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(140, 30);
+            this.btnEliminarUsuario.Text = "🗑️ Eliminar";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = false;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click); 
             // 
             // dgvUsuarios
             // 
@@ -180,6 +195,7 @@
             // cmbRoll
             // 
             this.cmbRoll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.cmbRoll.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList; // Evita que escriban texto libre
             this.cmbRoll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbRoll.ForeColor = System.Drawing.Color.White;
             this.cmbRoll.Location = new System.Drawing.Point(16, 200);
@@ -237,6 +253,7 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnNuevoUsuario;
+        private System.Windows.Forms.Button btnEliminarUsuario; 
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.Panel panelDetalle;
         private System.Windows.Forms.Label lblSubtitulo;
