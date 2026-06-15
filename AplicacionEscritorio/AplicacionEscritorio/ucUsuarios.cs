@@ -28,10 +28,11 @@ namespace AplicacionEscritorio
             btnBuscar.Visible = false;
             panelDetalle.Visible = false;
 
+            // Cambiado para que el único rol disponible sea "Cajeros"
+            cmbRoll.Items.Clear();
             cmbRoll.Items.AddRange(new string[]
             {
-                "Cliente",
-                "Admin"
+                "Cajeros"
             });
 
             _ = LoadUsuarios();
@@ -167,6 +168,50 @@ namespace AplicacionEscritorio
             }
         }
 
+        // NUEVO MÉTODO: Elimina validando que no quede el sistema vacío (Mínimo 1)
+        private async void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.CurrentRow == null)
+            {
+                MessageBox.Show("Por favor, seleccione un usuario de la lista para eliminar.");
+                return;
+            }
+
+            // Validación crucial del conteo total en la base/lista local
+            if (_usuarios.Count <= 1)
+            {
+                MessageBox.Show("Acción denegada: No se puede eliminar el usuario debido a que es el único registrado en el sistema.",
+                                "Validación de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var usuarioSeleccionado = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
+
+            var confirmacion = MessageBox.Show($"¿Está seguro de que desea eliminar al usuario {usuarioSeleccionado.Email}?",
+                                               "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                try
+                {
+                    string urlOriginal = ApiService.BaseUrl;
+                    ApiService.BaseUrl = SecurityBaseUrl;
+
+                    // Asume que la API acepta DELETE en la ruta: api/Usuario/{id}
+                    await ApiService.DeleteAsync($"api/Usuario/{usuarioSeleccionado.Id}");
+
+                    ApiService.BaseUrl = urlOriginal;
+
+                    MessageBox.Show("Usuario eliminado correctamente.");
+                    await LoadUsuarios();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar eliminar el usuario: " + ex.Message);
+                }
+            }
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             panelDetalle.Visible = false;
@@ -176,7 +221,8 @@ namespace AplicacionEscritorio
         {
             txtEmail.Clear();
             txtPassword.Clear();
-            cmbRoll.SelectedIndex = -1;
+            // Hace que por defecto ya quede seleccionado el rol "Cajeros" (índice 0)
+            cmbRoll.SelectedIndex = 0;
             chkStatus.Checked = true;
         }
     }
