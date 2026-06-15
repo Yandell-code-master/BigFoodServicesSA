@@ -18,17 +18,9 @@ namespace AplicacionEscritorio
         {
             this.lblWelcome = new System.Windows.Forms.Label();
             this.tblKPI = new System.Windows.Forms.TableLayoutPanel();
-            this.cardClientes = CreateCard("\U0001F465", "Clientes", "-", out lblValorClientes);
-            this.cardProductos = CreateCard("\U0001F4E6", "Productos", "-", out lblValorProductos);
-            this.cardFacturas = CreateCard("\U0001F9FE", "Facturas Hoy", "-", out lblValorFacturas);
-            this.cardCxC = CreateCard("\U0001F4B0", "CxC Pendientes", "-", out lblValorCxC);
             this.panelBottom = new System.Windows.Forms.Panel();
             this.lblAcceso = new System.Windows.Forms.Label();
             this.flowAcciones = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnIrFacturar = CreateActionButton("\U0001F9FE  Nueva Factura");
-            this.btnIrClientes = CreateActionButton("\U0001F464  Clientes");
-            this.btnIrProductos = CreateActionButton("\U0001F4E6  Productos");
-            this.btnIrFacturas = CreateActionButton("\U0001F4CB  Facturas");
 
             this.panelBottom.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +43,6 @@ namespace AplicacionEscritorio
             this.tblKPI.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             this.tblKPI.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             this.tblKPI.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.tblKPI.Controls.Add(this.cardClientes, 0, 0);
-            this.tblKPI.Controls.Add(this.cardProductos, 1, 0);
-            this.tblKPI.Controls.Add(this.cardFacturas, 0, 1);
-            this.tblKPI.Controls.Add(this.cardCxC, 1, 1);
 
             // panelBottom
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -75,10 +63,6 @@ namespace AplicacionEscritorio
             this.flowAcciones.Height = 60;
             this.flowAcciones.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.flowAcciones.BackColor = System.Drawing.Color.Transparent;
-            this.flowAcciones.Controls.Add(this.btnIrFacturar);
-            this.flowAcciones.Controls.Add(this.btnIrClientes);
-            this.flowAcciones.Controls.Add(this.btnIrProductos);
-            this.flowAcciones.Controls.Add(this.btnIrFacturas);
 
             // assemble panelBottom
             this.panelBottom.Controls.Add(this.flowAcciones);
@@ -89,10 +73,12 @@ namespace AplicacionEscritorio
             this.Controls.Add(this.tblKPI);
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.lblWelcome);
+
             this.panelBottom.ResumeLayout(false);
             this.ResumeLayout(false);
         }
-        
+
+        // Mantenemos tus excelentes métodos auxiliares aquí abajo, fuera de InitializeComponent
         private Panel CreateCard(string icon, string label, string value, out Label valueLabel)
         {
             Panel p = new Panel

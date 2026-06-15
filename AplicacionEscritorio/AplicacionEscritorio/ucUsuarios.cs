@@ -180,14 +180,14 @@ namespace AplicacionEscritorio
             // Validación crucial del conteo total en la base/lista local
             if (_usuarios.Count <= 1)
             {
-                MessageBox.Show("Acción denegada: No se puede eliminar el usuario debido a que es el único registrado en el sistema.",
+                MessageBox.Show("Acción denegada: No se puede eliminar el usuario debido a que es el único registrado en el sistema.", 
                                 "Validación de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var usuarioSeleccionado = (Usuario)dgvUsuarios.CurrentRow.DataBoundItem;
 
-            var confirmacion = MessageBox.Show($"¿Está seguro de que desea eliminar al usuario {usuarioSeleccionado.Email}?",
+            var confirmacion = MessageBox.Show($"¿Está seguro de que desea eliminar al usuario {usuarioSeleccionado.Email}?", 
                                                "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirmacion == DialogResult.Yes)
@@ -222,7 +222,7 @@ namespace AplicacionEscritorio
             txtEmail.Clear();
             txtPassword.Clear();
             // Hace que por defecto ya quede seleccionado el rol "Cajeros" (índice 0)
-            cmbRoll.SelectedIndex = 0;
+            cmbRoll.SelectedIndex = 0; 
             chkStatus.Checked = true;
         }
     }
